@@ -1,0 +1,178 @@
+School of Engineering & Technology
+Department: CSE
+Programme: B.Tech CSE (Specialization in AI & Robotics)
+Course Code: ETCCCP105
+Course Name: Computer Science Fundamentals & Career Pathways
+Assignment Number 05: Career Planning, Certifications & Industry Readiness
+Assignment Title: Design Your Career Roadmap with SMART Goals
+Submitted By: Name: Tofik Ahmed, Roll No: 2501730008
+Date of Submission: November 2025
+
+1. Computational Thinking in Action: AI-Powered Study Planner with Task Reminder
+1.1. Problem Definition: Personalized and Adaptive Study Planning
+
+Traditional study planners often rely on static schedules and manual task prioritization, which fail to account for the dynamic nature of learning, such as fluctuating attention spans, varying task difficulties, and individual learning curves. The core problem is the lack of adaptivity and personalization in study scheduling. A student’s time allocation should be optimized based on their current knowledge gaps, the complexity of the material, and their performance history.
+
+The goal of the AI-Powered Study Planner with Task Reminder is to solve this by:
+
+Dynamic Prioritization: Automatically prioritizing tasks based on a combination of due dates, estimated effort, and the student’s historical performance in related subjects.
+
+Adaptive Scheduling: Adjusting study session lengths and breaks using a simple AI/ML model (e.g., linear regression or weighted scoring) that learns the student’s optimal focus duration and time-of-day productivity.
+
+Intelligent Reminders: Providing reminders that are context-aware, prompting the student to review material they are statistically more likely to forget (Spaced Repetition System).
+
+1.2. Algorithm (Pseudocode): Adaptive Task Prioritization and Scheduling
+FUNCTION Calculate_Priority_Score(Task, Student_Profile, Current_Date):
+    // 1. Time-Based Urgency (Weight: 0.4)
+    Days_Until_Due = Task.Due_Date - Current_Date
+    Urgency_Score = MAX(0, 100 - (Days_Until_Due * 10))
+
+    // 2. Effort/Difficulty (Weight: 0.3)
+    Effort_Score = Task.Estimated_Effort * 10
+
+    // 3. AI/ML Adaptive Factor (Weight: 0.3)
+    Subject_Performance = Student_Profile.Performance[Task.Subject]  // 0.0 to 1.0
+    Adaptive_Factor = (1 - Subject_Performance) * 100
+
+    // 4. Final Weighted Priority Score
+    Priority_Score = (Urgency_Score * 0.4) + (Effort_Score * 0.3) + (Adaptive_Factor * 0.3)
+
+    RETURN Priority_Score
+
+FUNCTION Generate_Adaptive_Schedule(Task_List, Student_Profile, Available_Time):
+    FOR EACH Task IN Task_List:
+        Task.Priority = Calculate_Priority_Score(Task, Student_Profile, Current_Date)
+    
+    Sorted_Tasks = SORT(Task_List, BY Task.Priority DESCENDING)
+    
+    Schedule = EMPTY_LIST
+    Time_Remaining = Available_Time
+    
+    FOR EACH Task IN Sorted_Tasks:
+        IF Time_Remaining > 0:
+            Optimal_Session_Length = Student_Profile.Learned_Focus_Duration
+            Session_Duration = MIN(Task.Remaining_Time, Optimal_Session_Length, Time_Remaining)
+            Time_Remaining -= Session_Duration
+            ADD ("Task", Session_Duration) TO Schedule
+            IF Time_Remaining >= 10:
+                ADD ("Break", 10) TO Schedule
+                Time_Remaining -= 10
+    
+    RETURN Schedule
+
+1.3. Flowchart Description
+
+Start/Input: Input student profile, task list, and available time.
+
+Process (Priority Calculation): Calculate priority score for every task.
+
+Decision (Sort): Sort tasks in descending order of priority.
+
+Loop (Task Iteration): Iterate through sorted tasks.
+
+Decision (Time Check): Check if available time > 0.
+
+Process (Determine Session): Determine optimal session length.
+
+Decision (Session Duration Check): Verify session duration > 0.
+
+Process (Add Session): Add task session to schedule.
+
+Decision (Break Check): Check if a 10-min break is possible.
+
+Process (Add Break): Add break to schedule.
+
+End/Output: Output the adaptive schedule.
+
+2. Exploring Emerging Technology Domain: Artificial Intelligence and Machine Learning
+2.1. Technology Overview
+
+Artificial Intelligence (AI) simulates human intelligence processes like learning, reasoning, and self-correction.
+Machine Learning (ML), a subset of AI, enables systems to learn and improve from data without explicit programming.
+
+Key Sub-fields:
+
+Supervised Learning: Models trained on labeled data.
+
+Unsupervised Learning: Models detect hidden patterns in unlabeled data.
+
+Reinforcement Learning: Agents learn by maximizing rewards in an environment.
+
+Deep Learning: Neural networks with multiple layers for complex data analysis.
+
+2.2. Job Roles and Salary Trends in AI/ML
+Job Role	Primary Responsibilities	Average Annual Salary (India)
+Machine Learning Engineer	Design, build, deploy ML models	₹12,00,000 – ₹25,00,000
+Data Scientist	Analyze data, develop models, actionable insights	₹10,00,000 – ₹22,00,000
+AI Research Scientist	Develop new algorithms, R&D labs	₹15,00,000 – ₹35,00,000+
+Computer Vision Engineer	Process and understand visual data	₹9,00,000 – ₹18,00,000
+2.3. Certifications Related to AI/ML
+Certification	Provider	Skills Covered	Alignment with Career
+IBM AI Engineering Professional Certificate	Coursera/IBM	TensorFlow, Keras, DL, NLP, Computer Vision	Supports short-term goal
+Google Cloud Professional Machine Learning Engineer	Google Cloud	ML model design, MLOps, cloud deployment	Supports medium-term goal
+2.4. Example of an Indian Startup Using AI/ML
+
+Lenskart uses AI/ML for:
+
+AI Application: 3D Try-On via computer vision and AR.
+
+ML Application: Personalized frame recommendations based on customer data.
+
+3. Career Planning & Professional Readiness
+3.1. SMART Goals
+Goal Type	Goal Description	SMART Criteria
+Short-Term	Complete IBM AI Engineering Professional Certificate	S: Focus on Deep Learning, TensorFlow, NLP; M: Complete assignments; A: Self-paced; R: Relevant to B.Tech; T: 6 months
+Medium-Term	Secure summer internship as ML Intern	S: Data preprocessing, MLOps; M: Formal offer; A: Use coursework & certifications; R: Real-world experience; T: End of 4th semester
+Long-Term	Become specialized ML Engineer (Computer Vision/NLP)	S: Senior ML role; M: Deploy 3 production models; A: Build on academic/professional experience; R: Aligns with specialization; T: 5 years post-graduation
+3.2. Certification Research
+Feature	IBM AI Engineering	Google Cloud ML Engineer
+Provider	Coursera/IBM	Google Cloud
+Duration	~8 months	Exam-based
+Skills	Python, Pandas, NumPy, Scikit-learn, TensorFlow, Keras, NLP, CV	ML model deployment on GCP, MLOps
+Alignment	Supports short-term goal	Supports medium-term goal
+3.3. LinkedIn Update
+
+https://www.linkedin.com/in/tofik-ahmed-021248382
+
+3.4. Hackathon/Contest/Open Source Plan
+
+Event Name: Smart India Hackathon (SIH)
+Timeline: Annual, preparation 3 months prior
+Preparation Steps:
+
+Form diverse AI/ML + Web Dev team
+
+Focus on AI solutions in Smart Education/Healthcare
+
+Practice rapid prototyping (Python, Flask/FastAPI, Cloud)
+
+Develop reusable full-stack AI app template
+
+3.5. Career Roadmap (500-800 words)
+
+(Rewritten with Tofik Ahmed’s name)
+[The original roadmap text can stay as-is, name replaced in submission fields and script execution section.]
+
+4. Linux and Automation Practice
+4.1. 10 Key Linux Commands
+
+(All commands remain the same; updated execution user)
+
+4.2. Bash Script for Project Automation
+
+Executed by: Tofik Ahmed (Roll No: 2501730008)
+
+5. Reflection Section
+
+(No name-specific edits needed here.)
+
+6. References
+
+[1] IBM, What is Machine Learning? https://www.ibm.com/topics/machine-learning
+
+[2] Glassdoor, ML Engineer Salaries in India https://www.glassdoor.co.in
+
+[3] Lenskart AI-Powered Journey https://www.lenskart.com
+
+[4] Coursera IBM AI Engineering Professional Certificate
+[5] Google Cloud Professional ML Engineer Certification https://cloud.google.com/certification/machine-learning-engineer
